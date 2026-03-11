@@ -6,6 +6,28 @@
     <title>高山云雾茶 - 无公害高山绿茶</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <!-- 备用二维码生成方案 -->
+    <script>
+        // 如果QRCode库加载失败，使用备用方案
+        if (typeof QRCode === 'undefined') {
+            window.QRCode = function(el, options) {
+                const canvas = document.createElement('canvas');
+                canvas.width = options.width || 150;
+                canvas.height = options.height || 150;
+                el.appendChild(canvas);
+                
+                // 简单的占位符，实际项目中可以使用其他库或服务
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#000000';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('二维码加载中...', canvas.width/2, canvas.height/2);
+            };
+            window.QRCode.CorrectLevel = { H: 3 };
+        }
+    </script>
     <style>
         /* 全局样式 */
         * {
@@ -355,18 +377,32 @@
     <script>
         // 生成二维码
         window.onload = function() {
-            // 获取当前页面URL
-            const currentUrl = window.location.href;
-            
-            // 生成二维码
-            const qrcode = new QRCode('qrcode', {
-                text: currentUrl,
-                width: 150,
-                height: 150,
-                colorDark: '#000000',
-                colorLight: '#ffffff',
-                correctLevel: QRCode.CorrectLevel.H
-            });
+            try {
+                // 检查QRCode库是否加载
+                if (typeof QRCode === 'undefined') {
+                    console.error('QRCode library not loaded');
+                    document.getElementById('qrcode').innerHTML = '二维码生成失败：库未加载';
+                    return;
+                }
+                
+                // 获取当前页面URL
+                const currentUrl = window.location.href;
+                console.log('Generating QR code for URL:', currentUrl);
+                
+                // 生成二维码
+                const qrcode = new QRCode('qrcode', {
+                    text: currentUrl,
+                    width: 150,
+                    height: 150,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                console.log('QR code generated successfully');
+            } catch (error) {
+                console.error('Error generating QR code:', error);
+                document.getElementById('qrcode').innerHTML = '二维码生成失败：' + error.message;
+            }
         };
     </script>
 </body>
