@@ -1,313 +1,373 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>iHealth 智能随行杯 · 饮水管家</title>
-  
-  <!-- 微信分享/社交卡片优化 (Open Graph) -->
-  <meta property="og:title" content="iHealth 智能随行杯 · 你的私人饮水管家">
-  <meta property="og:description" content="智能温度显示 / 长效保温 / 喝水提醒 / 316L不锈钢 / 无线充电">
-  <meta property="og:image" content="https://fakeimg.pl/600x600/0288d1/ffffff?text=iHealth+Cup&font=noto&font_size=40">
-  <meta property="og:image:width" content="600">
-  <meta property="og:image:height" content="600">
-  <meta property="og:url" content="https://lilianblack.github.io/tea/">  <!-- 上线前请替换为实际完整域名+路径 -->
-  <meta property="og:type" content="product">
-  <meta property="og:locale" content="zh_CN">
-  <meta property="product:brand" content="iHealth">
-  <meta property="product:availability" content="in stock">
-  
-  <!-- 微信内置浏览器也会参考twitter卡片，同时加上 -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="iHealth 智能随行杯 · 私人饮水管家">
-  <meta name="twitter:description" content="智能温度显示 / 长效保温 / 喝水提醒 / 316L不锈钢 / 无线充电">
-  <meta name="twitter:image" content="https://fakeimg.pl/600x600/0288d1/ffffff?text=iHealth+Cup&font=noto&font_size=40">
-  
-  <!-- 样式：纯净移动优先，卡片设计 -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 16px;
-      margin: 0;
-    }
-
-    .product-card {
-      max-width: 420px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 32px;
-      box-shadow: 0 20px 35px -8px rgba(0, 35, 70, 0.15);
-      padding: 24px 22px 32px;
-      transition: transform 0.2s ease;
-    }
-
-    .product-gallery {
-      background: #f0f4f9;
-      border-radius: 24px;
-      overflow: hidden;
-      margin-bottom: 22px;
-    }
-
-    .product-gallery img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      background: #e6edf5;
-    }
-
-    .product-title {
-      font-size: 30px;
-      font-weight: 700;
-      color: #0b1e33;
-      letter-spacing: -0.3px;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-
-    .product-price {
-      font-size: 28px;
-      font-weight: 650;
-      color: #1e6df2;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .product-price span {
-      font-size: 16px;
-      font-weight: 400;
-      color: #68788c;
-      margin-left: 6px;
-    }
-
-    .product-desc {
-      background: #f7f9fc;
-      border-radius: 20px;
-      padding: 18px 18px 14px;
-      margin-bottom: 28px;
-      border-left: 5px solid #1e6df2;
-      font-size: 15px;
-      line-height: 1.65;
-      color: #1e2f44;
-    }
-
-    .product-desc p {
-      margin-bottom: 8px;
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-    }
-
-    .product-desc .icon {
-      display: inline-block;
-      width: 20px;
-      text-align: center;
-      color: #1e6df2;
-      font-weight: 600;
-    }
-
-    .qr-block {
-      background: #f2f6fe;
-      border-radius: 26px;
-      padding: 24px 18px 18px;
-      text-align: center;
-      border: 1px dashed #a0c3ff;
-    }
-
-    .qr-label {
-      font-size: 16px;
-      font-weight: 580;
-      color: #0b2d5c;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .qr-label i {
-      font-size: 20px;
-    }
-
-    #qr-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    #qr-container img {
-      width: 170px;
-      height: 170px;
-      border-radius: 20px;
-      background: white;
-      padding: 8px;
-      box-shadow: 0 8px 18px rgba(0, 40, 100, 0.12);
-      transition: transform 0.1s;
-    }
-
-    .qr-hint {
-      font-size: 13px;
-      color: #46648c;
-      background: #e9effa;
-      padding: 6px 12px;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 6px;
-    }
-
-    .footer-note {
-      margin-top: 18px;
-      color: #7f8fa4;
-      font-size: 12px;
-      text-align: center;
-      border-top: 1px solid #eef2f6;
-      padding-top: 16px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高山云雾茶 - 无公害高山绿茶</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d5016;
+        }
+        
+        .logo span {
+            color: #4caf50;
+        }
+        
+        /* 产品展示区域 */
+        .product-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+        
+        .product-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .product-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+        
+        .product-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .product-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-description {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .product-features {
+            margin-bottom: 30px;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            font-size: 20px;
+            color: #4caf50;
+            margin-right: 15px;
+        }
+        
+        .product-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #2d5016;
+        }
+        
+        /* 二维码区域 */
+        .qrcode-section {
+            padding: 60px 0;
+            background-color: #f0f7ee;
+            text-align: center;
+        }
+        
+        .qrcode-container {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        
+        #qrcode {
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .qrcode-text {
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #2d5016;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .footer-info {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .footer-copyright {
+            font-size: 12px;
+            color: #a8c69f;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .product-title {
+                font-size: 28px;
+            }
+            
+            .product-subtitle {
+                font-size: 16px;
+            }
+            
+            .product-content {
+                flex-direction: column;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-image {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-title {
+                font-size: 24px;
+            }
+            
+            .product-section {
+                padding: 40px 0;
+            }
+            
+            .qrcode-section {
+                padding: 40px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="product-card">
-    <!-- 产品主图（确保与分享图片一致或相似） -->
-    <div class="product-gallery">
-      <img src="https://fakeimg.pl/600x600/0288d1/ffffff?text=iHealth+Cup&font=noto&font_size=40" 
-           alt="iHealth 智能随行杯 产品展示"
-           width="600" height="600">
-    </div>
-
-    <!-- 产品名称 -->
-    <h1 class="product-title">iHealth 智能随行杯</h1>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">高山<span>茶缘</span></div>
+        </div>
+    </header>
     
-    <!-- 价格信息 -->
-    <div class="product-price">
-      ¥ 239 <span>| 建议零售价</span>
-    </div>
-
-    <!-- 产品卖点/描述（结构化展示，对分享描述也形成补充） -->
-    <div class="product-desc">
-      <p><span class="icon">⚡</span> 智能温度显示 · 触控感应</p>
-      <p><span class="icon">💧</span> 高频饮水提醒 · APP记录</p>
-      <p><span class="icon">🔋</span> 无线充电底座 · 超长续航</p>
-      <p><span class="icon">🧊</span> 316L不锈钢内胆 · 保温24h</p>
-    </div>
-
-    <!-- 二维码分享区域：用户可截图/保存二维码分享，朋友扫码即达本页 -->
-    <div class="qr-block">
-      <div class="qr-label">
-        <span>📲 扫码直达产品</span>
-        <span style="font-size:14px; background:#d9e6ff; padding:4px 10px; border-radius:40px;">分享有礼</span>
-      </div>
-      <!-- 二维码动态生成容器 -->
-      <div id="qr-container"></div>
-      <div class="qr-hint">长按二维码保存，或截屏发送给好友</div>
-    </div>
-
-    <div class="footer-note">
-      iHealth · 让每一口水都恰到好处
-    </div>
-  </div>
-
-  <!-- 引入轻量级二维码生成库 (qrcode-generator) -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
-  <script>
-    (function() {
-      // 确保二维码库加载完成
-      if (typeof qrcodeGenerator === 'undefined') {
-        console.warn('二维码库未加载，请刷新');
-        return;
-      }
-
-      // 获取当前页面完整URL（去掉hash部分，保证干净）
-      let currentUrl = window.location.href.split('#')[0];
-      
-      // 若URL非常长（微信可能会加参数），二维码仍可识别，但可以限制长度。这里不做截断。
-      try {
-        // 创建二维码对象：类型编号，纠错等级M
-        var qr = qrcodeGenerator(0, 'M');
-        qr.addData(currentUrl);
-        qr.make();
-
-        // 生成图片标签 (参数：单元格大小像素，边框大小)
-        var imgTag = qr.createImgTag(6, 2);  // 6px/单元格，边框2单元格
-        var container = document.getElementById('qr-container');
-        container.innerHTML = imgTag;
-
-        // 获取刚插入的img并添加样式 (确保显示完美)
-        var qrImg = container.querySelector('img');
-        if (qrImg) {
-          // 移除可能的内联宽高，我们用css控制
-          qrImg.style.width = '170px';
-          qrImg.style.height = '170px';
-          qrImg.style.borderRadius = '16px';
-          qrImg.style.background = '#ffffff';
-          // 部分安卓下图片模糊，强制设定像素尺寸
-          qrImg.setAttribute('width', '170');
-          qrImg.setAttribute('height', '170');
-        }
-      } catch (e) {
-        console.error('二维码生成失败', e);
-        document.getElementById('qr-container').innerHTML = '<div style="padding:20px;background:#eee;">二维码生成失败</div>';
-      }
-
-      // ------- 以下为微信分享增强 (若想完全自定义标题/图，可启用后端签名，但此处使用OG已足够) -------
-      // 为了更好兼容，当检测到微信内置浏览器时，可以预先填充一些meta（动态meta对爬虫无效，但对微信内分享跳转有帮助？实际上大部分情况静态og已经工作）
-      // 但为了满足"微信聊天框中展示基础信息如名称图片"，静态og是主流做法，微信会主动爬取。
-      // 若您有微信服务号并已绑定安全域名，可以取消下面注释并实现后端签名。
-      /*
-      if (/micromessenger/i.test(navigator.userAgent)) {
-        // 动态加载微信JS-SDK (可选，用于主动触发分享数据，但需要后端获取签名)
-        var wxScript = document.createElement('script');
-        wxScript.src = 'https://res.wx.qq.com/open/js/jweixin-1.6.0.js';
-        wxScript.onload = function() {
-          // 这里需要通过ajax请求自己的后端获取签名，例如：
-          // fetch('/wechat/signature?url=' + encodeURIComponent(location.href.split('#')[0]))
-          //   .then(res => res.json())
-          //   .then(data => {
-          //       wx.config({...});
-          //       wx.ready(function() {
-          //           wx.updateAppMessageShareData({ 
-          //               title: 'iHealth 智能随行杯', 
-          //               desc: '智能温度显示 / 喝水提醒 / 316L不锈钢', 
-          //               link: location.href.split('#')[0], 
-          //               imgUrl: 'https://fakeimg.pl/600x600/0288d1/ffffff?text=iHealth+Cup' 
-          //           });
-          //       });
-          //   });
+    <!-- 产品展示区域 -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-header">
+                <h1 class="product-title">高山云雾茶</h1>
+                <p class="product-subtitle">源自海拔1200米的高山茶园</p>
+            </div>
+            
+            <div class="product-content">
+                <div class="product-images">
+                    <div class="image-gallery">
+                        <img src="https://picsum.photos/id/106/600/400" alt="茶园风景" class="gallery-image">
+                        <img src="https://picsum.photos/id/152/600/400" alt="茶叶特写" class="gallery-image">
+                        <img src="https://picsum.photos/id/225/600/400" alt="泡好的茶汤" class="gallery-image">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="product-description">
+                        我们的茶叶产自海拔1200米以上的高山茶园，常年云雾缭绕，昼夜温差大，茶叶积累丰富营养物质。全程采用生态种植，不施化肥、不打农药，通过无公害农产品认证。手工采摘一芽一叶，传统工艺炒制，保留了茶叶最纯正的香气。冲泡后汤色清亮，滋味鲜爽甘醇，是您日常品饮或馈赠亲友的佳品。
+                    </p>
+                    
+                    <div class="product-features">
+                        <h3>核心特点</h3>
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <i class="feature-icon fas fa-leaf"></i>
+                                <span>无公害种植</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="feature-icon fas fa-mountain"></i>
+                                <span>高山种植（海拔1200米以上）</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="feature-icon fas fa-hand-paper"></i>
+                                <span>手工采摘</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="feature-icon fas fa-tint"></i>
+                                <span>鲜爽回甘</span>
+                            </li>
+                            <li class="feature-item">
+                                <i class="feature-icon fas fa-certificate"></i>
+                                <span>无公害农产品认证</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="product-details">
+                        <div class="detail-item">
+                            <span class="detail-label">产品名称：</span>
+                            <span>高山云雾茶</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">产地：</span>
+                            <span>高山地区</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">采摘季节：</span>
+                            <span>春季</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">价格：</span>
+                            <span>¥298/500g</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 二维码区域 -->
+    <section class="qrcode-section">
+        <div class="container">
+            <h2>扫码分享</h2>
+            <div class="qrcode-container">
+                <div id="qrcode"></div>
+                <p class="qrcode-text">扫描二维码，分享给好友</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">高山茶缘</div>
+                <div class="footer-info">专注于无公害高山茶叶的种植与销售</div>
+                <div class="footer-copyright">© 2024 高山茶缘. 保留所有权利.</div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 生成二维码
+        window.onload = function() {
+            // 获取当前页面URL
+            const currentUrl = window.location.href;
+            
+            // 生成二维码
+            const qrcode = new QRCode('qrcode', {
+                text: currentUrl,
+                width: 150,
+                height: 150,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
         };
-        document.head.appendChild(wxScript);
-      }
-      */
-
-      // 另注：Open Graph中og:url建议替换为线上真实域名，否则可能被微信缓存错误地址。
-      // 如果您将此页面部署在正式域名下，请手动修改head中og:url的content。
-    })();
-  </script>
-
-  <!-- 确保og:url与当前地址一致（如果部署时忘记替换，可用js动态更新，但爬虫不执行。此处仅在控制台提示） -->
-  <script>
-    (function() {
-      // 友善提示：部署前记得修改og:url为真实域名
-      var metaOgUrl = document.querySelector('meta[property="og:url"]');
-      if (metaOgUrl && metaOgUrl.content && metaOgUrl.content.indexOf('你的域名') !== -1) {
-        console.log('提示: 请将 <meta property="og:url" content="..."> 替换为实际完整域名+路径，以便微信正确抓取。');
-      }
-    })();
-  </script>
-
-  <!-- 附加说明：产品图使用的 fakeimg 服务稳定，返回带文字图片，可放心用于分享缩略图。若想替换为真实产品图，直接更改og:image和img src即可。 -->
+    </script>
 </body>
-
 </html>
