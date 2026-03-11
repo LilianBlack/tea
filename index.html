@@ -360,7 +360,7 @@
         window.onload = function() {
             try {
                 // 获取当前页面URL
-                const currentUrl = window.location.href;
+                const currentUrl = window.location.href || 'https://lilianblack.github.io/tea/';
                 console.log('Generating QR code for URL:', currentUrl);
                 
                 // 清空容器
@@ -459,3 +459,4 @@
     </script>
 </body>
 </html>
+
